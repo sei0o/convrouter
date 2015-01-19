@@ -1,0 +1,26 @@
+routes:
+  gisconvert.com:
+    import:
+      - dxf
+      - dwg
+      - kml
+    export:
+      - kml
+      - shp
+  mapbox.github.io/togeojson/:
+    import:
+      - kml
+      - gpx
+    export:
+      - geojson
+  geojson.io:
+    import:
+      - geojson
+      - kml
+      - csv
+    export:
+      - geojson
+      - topojson
+      - csv
+      - wkt
+      - shp
