@@ -1,12 +1,19 @@
+#!/usr/bin/env ruby
+
 require 'yaml'
 require 'clier'
-require 'pp'
 
 routes = YAML.load_file('routes.yml')["routes"]
 
 pair = Clier.parse ARGV
 from = pair[:f]
 to   = pair[:t]
+
+# from, to の値をチェック
+if can_import(from, routes).empty? || can_export(to, routes).empty?
+  puts "そんなファイル形式は知りません"
+  exit(-1)
+end
 
 def can_import type, refine_routes # importできるtoolの配列を返す
   tools = {}
